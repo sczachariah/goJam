@@ -26,6 +26,7 @@ eval $(minikube docker-env --shell=bash)
 docker login    
 docker pull store/oracle/weblogic:12.2.1.2    
 docker rmi store/oracle/weblogic:12.2.1.2  
+docker logs <container_id> | grep password  
 [docker run -d store/oracle/weblogic:12.2.1.2]  
 [docker run -d -p 7001:7001 store/oracle/weblogic:12.2.1.2]  
 [docker run -d -p 7002:7001 store/oracle/weblogic:12.2.1.2]  
