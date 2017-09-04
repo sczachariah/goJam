@@ -1,5 +1,6 @@
 # goJam
-Learning go
+Learning go..
+For each project the path should be set as %GOPATH%/src/<your_project>
 
 #######################################################
 #Start minikube
