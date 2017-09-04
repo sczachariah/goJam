@@ -34,7 +34,7 @@ docker logs <container_id> | grep password
   
 #Run weblogic in minikube  
 kubectl run weblogic --image=store/oracle/weblogic:12.2.1.2  
-kubectl expose deployment weblogic --type=LoadBalancer  
+kubectl expose deployment weblogic --type=NodePort  
 kubectl get pod  
 kubectl get services  
 minikube service weblogic --url  
