@@ -30,7 +30,7 @@ docker pull store/oracle/weblogic:12.2.1.2
 #docker logs <container_id> | grep password
 
 #Run weblogic in minikube
-kubectl run weblogic --image=store/oracle/weblogic:12.2.1.2 --port=8888:7001
+kubectl run weblogic --image=store/oracle/weblogic:12.2.1.2
 kubectl expose deployment weblogic --type=LoadBalancer
 kubectl get pod
 kubectl get services
