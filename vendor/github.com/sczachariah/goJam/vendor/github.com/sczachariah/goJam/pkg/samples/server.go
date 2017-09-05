@@ -11,6 +11,10 @@ var mu sync.Mutex
 var count int
 
 func Server() {
+	lissajous := func(w http.ResponseWriter, r *http.Request) {
+		Lissajous(w)
+	}
+	http.HandleFunc("/lissajous", lissajous)
 	http.HandleFunc("/", handler)
 	http.HandleFunc("/count", counter)
 	log.Fatal(http.ListenAndServe(":7777", nil))

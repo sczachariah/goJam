@@ -1,0 +1,8 @@
+hash: 8f618fd7c250f7b0826e79a3867def7a632d4ef15b309eb99f9142f635812d25
+updated: 2017-09-05T18:30:25.6318262+05:30
+imports:
+- name: github.com/sczachariah/goJam
+  version: 70681676ea8229b05bb4e9a86b5822e0ca284a9f
+  subpackages:
+  - pkg/samples
+testImports: []
