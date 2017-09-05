@@ -9,8 +9,6 @@ out/
 *.ipr
 *.iws
 *.iml
-vendor
-glide.lock
 *.exe
 
 # Eclipse
