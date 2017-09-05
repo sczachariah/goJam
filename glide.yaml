@@ -1,2 +1,5 @@
 package: goJam
-import: []
+import:
+- package: github.com/sczachariah/goJam
+  subpackages:
+  - pkg/samples

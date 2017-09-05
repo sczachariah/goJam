@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"goJam/samples"
+	"goJam/pkg/samples"
 )
 
 func main() {
