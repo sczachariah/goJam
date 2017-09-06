@@ -1,0 +1,9 @@
+apiVersion: "gojam.server.op/v1"
+kind: JamServer
+
+metadata:
+  name: hello
+
+spec:
+  owner: Jon
+  message: Hello

@@ -1,5 +1,0 @@
-package: goJam
-import:
-- package: github.com/sczachariah/goJam
-  subpackages:
-  - pkg/samples

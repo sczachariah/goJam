@@ -54,11 +54,11 @@ kubectl delete deployment weblogic
 #######################################################  
 ##**Build docker image for our sample server.go and run in minikube**  
 ```
-docker build -t gojam:v0  
-docker tag gojam:v0 fmwpltqa/gojam
-docker push fmwpltqa/gojam
+docker build -t gojamserver:v0  build/server/.
+docker tag gojam:v0 fmwpltqa/gojamserver
+docker push fmwpltqa/gojamserver
 
-kubectl run hello-server --image=fmwpltqa/gojam:latest --port=7777  
+kubectl run hello-server --image=fmwpltqa/gojamserver:latest --port=7777  
 kubectl expose deployment hello-server --type=NodePort  
 kubectl get pod  
 kubectl get services  
@@ -67,4 +67,27 @@ kubectl delete service hello-server
 kubectl delete deployment hello-server  
 ```
 #######################################################  
+
+#######################################################  
+##**Build docker image for our example operator**  
+```
+docker build -t gojamoperator:v0  build/operator/.
+docker tag gojam:v0 fmwpltqa/gojamoperator
+docker push fmwpltqa/gojamoperator
+
+kubectl run hello-server --image=fmwpltqa/gojamoperator:latest --port=9999
+kubectl expose deployment jamserver-operator --type=NodePort  
+kubectl get pod  
+kubectl get services  
+minikube service hello-server --url  
+kubectl delete service hello-server  
+kubectl delete deployment hello-server  
+```
+#######################################################
+
+
+```
+kubectl create -f manifests/gojam-server-crd    #Create CustomResourceRefinition
+kubectl create -f specs/                        #Create custom objects
+```
 

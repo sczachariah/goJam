@@ -13,6 +13,8 @@ var count int
 func Server() {
 	http.HandleFunc("/", handler)
 	http.HandleFunc("/count", counter)
+	http.HandleFunc("/stop", stopper)
+	log.Printf("Starting the goJam Server!")
 	log.Fatal(http.ListenAndServe(":7777", nil))
 }
 
@@ -45,5 +47,11 @@ func counter(w http.ResponseWriter, r *http.Request) {
 	mu.Lock()
 	fmt.Fprintf(w, "Count %d\n", count)
 	mu.Unlock()
+	return
+}
+
+// stopper stops the running server.
+func stopper(w http.ResponseWriter, r *http.Request) {
+	log.Printf("Stopping the goJam Server!")
 	return
 }
