@@ -54,9 +54,9 @@ kubectl delete deployment weblogic
 #######################################################  
 ##**Build docker image for our sample server.go and run in minikube**  
 ```
-docker build -t gojamserver:v0  build/server/.
-docker tag gojam:v0 fmwpltqa/gojamserver
-docker push fmwpltqa/gojamserver
+docker build -t gojamserver:v0 .
+docker tag gojamserver:v0 fmwpltqa/gojamserver:v0
+docker push fmwpltqa/gojamserver:v0
 
 kubectl run hello-server --image=fmwpltqa/gojamserver:latest --port=7777  
 kubectl expose deployment hello-server --type=NodePort  
@@ -71,9 +71,10 @@ kubectl delete deployment hello-server
 #######################################################  
 ##**Build docker image for our example operator**  
 ```
-docker build -t gojamoperator:v0  build/operator/.
-docker tag gojam:v0 fmwpltqa/gojamoperator
-docker push fmwpltqa/gojamoperator
+cd build/operator
+docker build -t gojamoperator:v0  cmd/
+docker tag gojamoperator:v0 fmwpltqa/gojamoperator:v0
+docker push fmwpltqa/gojamoperator:v0
 
 kubectl run hello-server --image=fmwpltqa/gojamoperator:latest --port=9999
 kubectl expose deployment jamserver-operator --type=NodePort  
