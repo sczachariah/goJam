@@ -52,15 +52,16 @@ kubectl delete deployment weblogic
   
   
 #######################################################  
-##**Build docker image for our sample server.go and run in minikube**  
+##**Build docker image for our sample server.go and run in minikube** 
+##This can be similar to weblogic running.##  
 ```
 docker build -t gojamserver:v0 .
 docker tag gojamserver:v0 fmwpltqa/gojamserver:v0
 docker push fmwpltqa/gojamserver:v0
 
-kubectl run hello-server --image=fmwpltqa/gojamserver:latest --port=7777  
+kubectl run hello-server --image=fmwpltqa/gojamserver:v0 --port=7777  
 kubectl expose deployment hello-server --type=NodePort  
-kubectl get pod  
+kubectl get deployments  
 kubectl get services  
 minikube service hello-server --url  
 kubectl delete service hello-server  
@@ -69,10 +70,12 @@ kubectl delete deployment hello-server
 #######################################################  
 
 #######################################################  
-##**Build docker image for our example operator**  
+##**[WIP]Build docker image for our example operator**  
+##Write an operator for the sample server to understand what an operator is##  
 ```
-cd build/operator
-docker build -t gojamoperator:v0  cmd/
+cd cmd
+go get -v -d
+docker build -t gojamoperator:v0  .
 docker tag gojamoperator:v0 fmwpltqa/gojamoperator:v0
 docker push fmwpltqa/gojamoperator:v0
 
