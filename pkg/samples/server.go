@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"sync"
+	"os"
 )
 
 var mu sync.Mutex
@@ -53,5 +54,6 @@ func counter(w http.ResponseWriter, r *http.Request) {
 // stopper stops the running server.
 func stopper(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Stopping the goJam Server!")
-	return
+	stop := make(chan os.Signal, 1)
+	<-stop
 }
